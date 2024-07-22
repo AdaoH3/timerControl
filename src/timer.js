@@ -2,7 +2,26 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     startTimer();
+    sendControlRequest('setGPIOPin', 11, 1);
 });
+
+function sendControlRequest(functionName, pin, action) {
+    fetch('http://localhost:5000/control_gpio', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            function: functionName,
+            pin: pin,
+            action: action,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => console.log('Success:', data))
+    .catch((error) => console.error('Error:', error));
+}
+
 
 function startTimer() 
 {
