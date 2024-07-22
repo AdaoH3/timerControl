@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Text</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="stylesForm.css">
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Using the .text-base class for styling -->
+    <div class="text-base choose-text">Choose Time</div>
+    <!-- Rectangle -->
+    <div class="textBox"></div> 
+    <!-- Directions -->
+    <div class="text-base direction"> Put time in form 00:00:00 </div>
+    <!-- Input Text Back-->
+    <div class="text-base inputTextBack" contenteditable="true" onclick="enableEditing()">Input Text</div>
+    
+    <!-- Include your JavaScript files here -->
+    <script src="timer.js"></script>
+    <script src="formSubmit.js"></script>
+</body>
+</html>

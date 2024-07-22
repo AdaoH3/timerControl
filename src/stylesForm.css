@@ -1,0 +1,73 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    background-color: #3B3B3B; /* Background color for the entire body */
+    justify-content: center; /* Center content horizontally */
+}
+
+.text-base {
+    text-align: center; /* Center text horizontally */
+    color: #FFF;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    position: absolute; /* Optional: To position text absolutely */
+    font-weight: 900;
+    user-select: none; /* Prevent text selection */
+}
+
+.choose-text {
+    top: 9.37%; /* Optional: Center vertically */
+    font-size: 200px;
+    text-align: center; /* Center text horizontally */
+    /* Additional styles specific to the "Choose Time" text */
+}
+
+.direction
+{
+    top: 80.46%; 
+    width: 895px;
+    height: 114px;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    line-height: normal;
+}
+
+.error
+{
+    color: red;
+}
+
+.inputTextBack
+{
+    top: 48.33%;
+    color: #949494;
+    font-size: 96px;
+    font-style: normal;
+    line-height: normal;
+    width: 635px;
+    cursor: text; /* Change cursor to text when hovering */
+}
+
+.textBox {
+    position: absolute;
+    top: 39.94%; /* Distance from the top */
+    flex-shrink: 0;
+    width: 1141px;
+    height: 295px;
+    background: #D9D9D9;
+}
+
+.timer {
+    top: 0%;
+    left: 50%; /* Center horizontally */
+    line-height: 100px;
+    font-size: 24px;
+    color: black;
+}

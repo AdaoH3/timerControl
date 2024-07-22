@@ -1,0 +1,29 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    background-color: #ffffff; /* Background color for the entire body */
+    justify-content: center;
+    align-items: center;
+}
+
+.text-base {
+    text-align: center; /* Center text horizontally */
+    color: #FFF;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    position: absolute; /* Optional: To position text absolutely */
+    font-weight: 900;
+    user-select: none; /* Prevent text selection */
+}
+
+#timer {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the element */
+    font-size: 1000%;
+    color: black;
+}
