@@ -13,15 +13,14 @@ function sendControlRequest(functionName, pin, action) {
         },
         body: JSON.stringify({
             function: functionName,
-            pin: pin.toString(),
-            action: action.toString(),
+            pin: pin ? pin.toString() : null,
+            action: action ? action.toString() : null,
         }),
     })
     .then(response => response.json())
     .then(data => console.log('Success:', data))
     .catch((error) => console.error('Error:', error));
 }
-
 
 function startTimer() 
 {
