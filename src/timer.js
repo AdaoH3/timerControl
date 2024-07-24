@@ -21,9 +21,10 @@ function sendControlRequest(functionName, pin, action) {
     .catch((error) => console.error('Error:', error));
 }
 
-function startTimer() 
-{
+function startTimer() {
+    const timerElement = document.getElementById("timer"); // Initialize timerElement here
     const initialTime = localStorage.getItem('enteredText'); // Retrieve the enteredText from local storage
+
     // Parse the time value into hours, minutes, and seconds
     const [hours, minutes, seconds] = initialTime.split(":").map(Number);
 
@@ -31,23 +32,23 @@ function startTimer()
     let totalSeconds = hours * 3600 + minutes * 60 + seconds;
 
     // Update the timer display immediately
-    updateDisplay(totalSeconds);
+    updateDisplay(totalSeconds, timerElement);
 
     // Start the countdown
     const countdownInterval = setInterval(() => {
         if (totalSeconds <= 0) {
             clearInterval(countdownInterval);
             console.log("Times Up");
-            timerElement.classList.add('blinking');
+            timerElement.classList.add('blinking'); // Apply blinking class
             sendControlRequest('startDrill');
         } else {
             totalSeconds--;
-            updateDisplay(totalSeconds);
+            updateDisplay(totalSeconds, timerElement);
         }
     }, 1000);
 }
 
-function updateDisplay(totalSeconds) {
+function updateDisplay(totalSeconds, timerElement) {
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
     const seconds = totalSeconds % 60;
@@ -60,5 +61,5 @@ function updateDisplay(totalSeconds) {
     ].join(":");
 
     // Display the formatted time
-    document.getElementById("timer").textContent = formattedTime;
+    timerElement.textContent = formattedTime;
 }

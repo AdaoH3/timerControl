@@ -27,3 +27,13 @@ body {
     font-size: 1000%;
     color: black;
 }
+
+.blinking {
+    animation: blink-animation 1s steps(1, end) infinite;
+}
+
+@keyframes blink-animation {
+    0% { color: red; }
+    50% { color: black; }
+    100% { color: red; }
+}
