@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     startTimer();
-    sendControlRequest('setGPIOPin', 11, 1);
+    sendControlRequest('setGPIOPin', '11', '1');
 });
 
 function sendControlRequest(functionName, pin, action) {
@@ -13,8 +13,8 @@ function sendControlRequest(functionName, pin, action) {
         },
         body: JSON.stringify({
             function: functionName,
-            pin: pin,
-            action: action,
+            pin: pin.toString(),
+            action: action.toString(),
         }),
     })
     .then(response => response.json())
