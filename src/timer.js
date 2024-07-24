@@ -1,13 +1,13 @@
 // timer.js
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
     startTimer();
     sendControlRequest('startDrill');
 });
 
 function sendControlRequest(functionName, pin, action) {
-    fetch('http://localhost:5000/control_gpio', {
-        method: 'POST',
+    fetch("http://localhost:5000/control_gpio", {
+        method: "POST",
         headers: {
             'Content-Type': 'application/json',
         },
