@@ -2,7 +2,6 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     startTimer();
-    sendControlRequest('startDrill');
 });
 
 function sendControlRequest(functionName, pin, action) {
@@ -39,6 +38,8 @@ function startTimer()
         if (totalSeconds <= 0) {
             clearInterval(countdownInterval);
             console.log("Times Up");
+            timerElement.classList.add('blinking');
+            sendControlRequest('startDrill');
         } else {
             totalSeconds--;
             updateDisplay(totalSeconds);
