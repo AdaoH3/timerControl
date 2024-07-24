@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     startTimer();
-    sendControlRequest('setGPIOPin', '11', '1');
+    sendControlRequest('startDrill');
 });
 
 function sendControlRequest(functionName, pin, action) {
