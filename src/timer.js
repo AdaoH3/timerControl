@@ -2,7 +2,8 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     startTimer();
-    startClicks(localStorage.getItem('enteredText'));
+    const gotTime = localStorage.getItem('enteredText');
+    startClicks(gotTime);
 });
 
 function sendControlRequest(functionName, pin, action) {
@@ -23,19 +24,25 @@ function sendControlRequest(functionName, pin, action) {
 }
 
 function startClicks(clickTimeStart) {
+    const seconds = parseInt(clickTimeStart, 10);
+    if (isNaN(seconds)) {
+        console.error('Invalid time format:', clickTimeStart);
+        return;
+    }
     fetch("http://localhost:5000/trigger_relay", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            seconds: clickTimeStart
+            seconds: seconds
         }),
     })
-    .then(response => response.text())  // Use .text() to log raw response
+    .then(response => response.text())
     .then(data => console.log('Server response:', data))
     .catch((error) => console.error('Error:', error));
-}    
+}
+
 
 function startTimer() {
     const timerElement = document.getElementById("timer"); // Initialize timerElement here
