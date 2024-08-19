@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     startTimer();
-    const gotTime = localStorage.getItem('enteredText');
+    let gotTime = localStorage.getItem('enteredText');
     startClicks(gotTime);
 });
 
