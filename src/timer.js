@@ -1,8 +1,9 @@
 // timer.js
 
 document.addEventListener("DOMContentLoaded", function() {
+    startClicks(localStorage.getItem('enteredText'));
+//afasfasfsaf
     startTimer();
-    startClicks(initialTime);
 });
 
 function sendControlRequest(functionName, pin, action) {
@@ -29,13 +30,13 @@ function startClicks(clickTimeStart) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          seconds: clickTimeStart
+            seconds: clickTimeStart
         }),
     })
-    .then(response => response.json())
-    .then(data => console.log('Success:', data))
+    .then(response => response.text())  // Use .text() to log raw response
+    .then(data => console.log('Server response:', data))
     .catch((error) => console.error('Error:', error));
-}
+}    
 
 function startTimer() {
     const timerElement = document.getElementById("timer"); // Initialize timerElement here
