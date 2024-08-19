@@ -2,8 +2,6 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     startTimer();
-    let gotTime = localStorage.getItem('enteredText');
-    startClicks(gotTime);
 });
 
 function sendControlRequest(functionName, pin, action) {
@@ -48,6 +46,9 @@ function startTimer() {
 
     // Calculate the total time in seconds
     let totalSeconds = hours * 3600 + minutes * 60 + seconds;
+    
+    //Starts the clicks
+    startClicks(totalSeconds);
 
     // Update the timer display immediately
     updateDisplay(totalSeconds, timerElement);
