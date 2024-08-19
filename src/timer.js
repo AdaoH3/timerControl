@@ -2,6 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     startTimer();
+    startClicks(initialTime);
 });
 
 function sendControlRequest(functionName, pin, action) {
@@ -14,6 +15,21 @@ function sendControlRequest(functionName, pin, action) {
             function: functionName,
             pin: pin ? pin.toString() : null,
             action: action ? action.toString() : null,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => console.log('Success:', data))
+    .catch((error) => console.error('Error:', error));
+}
+
+function startClicks(clickTimeStart) {
+    fetch("http://localhost:5000/trigger_relay", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          seconds: clickTimeStart
         }),
     })
     .then(response => response.json())

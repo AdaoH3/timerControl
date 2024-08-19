@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function enableEditing() {
         editable.contentEditable = true;
         editable.innerText = ''; // Clear the initial text content
-        editable.focus();
+        editable.focus(); //Makes the input box editable
     }
 
     function handleFormSubmission() {
