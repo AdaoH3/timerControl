@@ -24,18 +24,13 @@ function sendControlRequest(functionName, pin, action) {
 }
 
 function startClicks(clickTimeStart) {
-    const seconds = parseInt(clickTimeStart, 10);
-    if (isNaN(seconds)) {
-        console.error('Invalid time format:', clickTimeStart);
-        return;
-    }
     fetch("http://localhost:5000/trigger_relay", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            seconds: seconds
+            seconds: clickTimeStart,
         }),
     })
     .then(response => response.text())
