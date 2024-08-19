@@ -1,9 +1,8 @@
 // timer.js
 
 document.addEventListener("DOMContentLoaded", function() {
-    startClicks(localStorage.getItem('enteredText'));
-//afasfasfsaf
     startTimer();
+    startClicks(localStorage.getItem('enteredText'));
 });
 
 function sendControlRequest(functionName, pin, action) {
