@@ -4,23 +4,6 @@ document.addEventListener("DOMContentLoaded", function() {
     startTimer();
 });
 
-function sendControlRequest(functionName, pin, action) {
-    fetch("http://localhost:5000/control_gpio", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            function: functionName,
-            pin: pin ? pin.toString() : null,
-            action: action ? action.toString() : null,
-        }),
-    })
-    .then(response => response.json())
-    .then(data => console.log('Success:', data))
-    .catch((error) => console.error('Error:', error));
-}
-
 function startClicks(clickTimeStart) {
     fetch("http://localhost:5000/trigger_relay", {
         method: "POST",
@@ -35,7 +18,6 @@ function startClicks(clickTimeStart) {
     .then(data => console.log('Server response:', data))
     .catch((error) => console.error('Error:', error));
 }
-
 
 function startTimer() {
     const timerElement = document.getElementById("timer"); // Initialize timerElement here
